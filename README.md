@@ -17,7 +17,6 @@
 - [ ] Delete account (DELETE)
 - [ ] Get all users (GET)
 - Tokens
-- [ ] Authorize pages (front? backend?)
 
 ## Frontend : React
 
@@ -32,7 +31,7 @@
 > ETC
 
 - [ ] Token : redux?
-- [ ] Authroized page?
+- Authroized page
 - [ ] Image upload
 
 ## Deploy

@@ -94,7 +94,15 @@ app.put("/api/username", jwt.authorize, async (req, res) => {
 
   const { username } = req.body;
   const updatedName = await db.updateUserName(userId, username);
-  res.redirect("/profile");
+
+  const token = jwt.generateToken({
+    sub: updatedName.id,
+    email: updatedName.email,
+    username: updatedName.username,
+    profileImg: updatedName.profileImg,
+  });
+
+  res.send(token);
 });
 
 // UPDATE : Profile Image

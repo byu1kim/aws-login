@@ -34,11 +34,12 @@ export async function getUserWithEmail(email) {
 }
 
 export async function updateUserName(id, username) {
-  const [results] = await pool.query(
+  const [result] = await pool.query(
     `UPDATE users SET username = ? WHERE id = ?`,
     [username, id]
   );
-  return results;
+  const user = await getUserById(id);
+  return user;
 }
 
 export async function updateUserProfileImage(id, profileImg) {
