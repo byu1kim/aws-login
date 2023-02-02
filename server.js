@@ -16,9 +16,7 @@ const upload = multer({ storage });
 app.post("/api/login", async (req, res) => {
   // validate login information from frontend
   const { email, password } = req.body;
-  console.log(req.file);
-  console.log(req.body);
-  console.log("Hi");
+
   if (!email || !password) {
     res.status(400).send({ status: "error", message: "missing fields" });
     return;
@@ -46,8 +44,7 @@ app.post("/api/login", async (req, res) => {
     username: user.username,
     profileImg: user.profileImg,
   });
-
-  res.send({ status: "ok", userId: token });
+  res.send(token);
 });
 
 // SINGUP
@@ -92,11 +89,12 @@ app.get("/api/user", jwt.authorize, async (req, res) => {
 
 // UPDATE : Display Name
 app.put("/api/username", jwt.authorize, async (req, res) => {
+  console.log("🔅This is Update!");
   const userId = req.user.sub;
 
   const { username } = req.body;
   const updatedName = await db.updateUserName(userId, username);
-  res.send(updatedName);
+  res.redirect("/profile");
 });
 
 // UPDATE : Profile Image
