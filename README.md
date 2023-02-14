@@ -9,30 +9,30 @@
 
 > Features
 
-- Signup (POST)
-- Login (POST)
-- Update username (PUT)
-- [ ] Update profile photo (PUT)
+- [v] Signup (POST)
+- [v] Login (POST)
+- [v] Update username (PUT)
+- [v] Update profile photo (PUT)
 - [ ] Delete profile photo (PUT)
 - [ ] Delete account (DELETE)
-- Tokens
+- [v] Tokens
 
 ## Frontend : React
 
 > Routes
 
-- Singup, Login, Profile
+- [v] Singup, Login, Profile
 
 > Components
 
-- Forms : Forms for edit profile, singup
+- [v] Forms : Forms for edit profile, singup
 
 > ETC
 
-- Token : Context
-- Authroized page
-- [ ] Image upload
-- [ ] Redirect after signup
+- [v] Token : Context
+- [v] Authroized page
+- [v] Image upload
+- [v] Redirect after signup
 
 ## Deploy
 
