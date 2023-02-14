@@ -12,10 +12,9 @@
 - Signup (POST)
 - Login (POST)
 - Update username (PUT)
-- Update profile photo (PUT)
+- [ ] Update profile photo (PUT)
 - [ ] Delete profile photo (PUT)
 - [ ] Delete account (DELETE)
-- [ ] Get all users (GET)
 - Tokens
 
 ## Frontend : React
@@ -30,9 +29,10 @@
 
 > ETC
 
-- [ ] Token : redux?
+- Token : Context
 - Authroized page
 - [ ] Image upload
+- [ ] Redirect after signup
 
 ## Deploy
 

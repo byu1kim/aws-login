@@ -18,34 +18,38 @@ export async function getUserById(id) {
 }
 
 export async function createUser(email, password, username, profileImg) {
-  const [result] = await pool.query(
-    `INSERT INTO users (email, password, username, profileImage) VALUES (?, ?, ?, ?)`,
-    [email, password, username, profileImg]
-  );
+  const [result] = await pool.query(`INSERT INTO users (email, password, username, profileImage) VALUES (?, ?, ?, ?)`, [
+    email,
+    password,
+    username,
+    profileImg,
+  ]);
   const user = await getUserById(result.insertId);
   return user;
 }
 
 export async function getUserWithEmail(email) {
-  const [result] = await pool.query(`SELECT * FROM users WHERE email = ?`, [
-    email,
-  ]);
+  const [result] = await pool.query(`SELECT * FROM users WHERE email = ?`, [email]);
   return result[0]; // to return only obejct not array
 }
 
+export async function updateProfile(id, username, profileImage) {
+  const [result] = await pool.query(`UPDATE users SET username = ?, profileImage = ? WHERE id = ?`, [
+    username,
+    profileImage,
+    id,
+  ]);
+  const user = await getUserById(id);
+  return user;
+}
+
 export async function updateUserName(id, username) {
-  const [result] = await pool.query(
-    `UPDATE users SET username = ? WHERE id = ?`,
-    [username, id]
-  );
+  const [result] = await pool.query(`UPDATE users SET username = ? WHERE id = ?`, [username, id]);
   const user = await getUserById(id);
   return user;
 }
 
 export async function updateUserProfileImage(id, profileImg) {
-  const [results] = await pool.query(
-    `UPDATE users SET profileImage = ? WHERE id = ?`,
-    [profileImg, id]
-  );
+  const [results] = await pool.query(`UPDATE users SET profileImage = ? WHERE id = ?`, [profileImg, id]);
   return results;
 }
